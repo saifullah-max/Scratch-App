@@ -1,0 +1,118 @@
+/* Universal styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Ensure the gradient background fills the entire screen */
+html, body {
+    height: 100%; /* Ensure full height of the page */
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Poppins', sans-serif; /* Custom font */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center everything vertically and horizontally */
+    background: linear-gradient(135deg, #ff9900, #ffcc00); /* Gradient background */
+}
+
+/* Full-page gradient background using body pseudo-element */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #ff9900, #ffcc00); /* Gradient background */
+    z-index: -1; /* Ensure it stays behind content */
+}
+
+/* Countdown container centered on the page */
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Limit the width */
+    background-color: #222;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    margin-top: 10vh; /* Slightly adjust the vertical positioning */
+}
+
+/* Countdown layout */
+.countdown-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px; /* Adjust spacing */
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 48px; /* Larger value size */
+    font-weight: bold;
+}
+
+.countdown-unit {
+    font-size: 24px; /* Unit size */
+    text-transform: uppercase;
+}
+
+/* Button styles */
+button {
+    margin: 15px 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #ffa500;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .countdown-value {
+        font-size: 36px;
+    }
+    .countdown-unit {
+        font-size: 18px;
+    }
+    .countdown-box {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-value {
+        font-size: 28px;
+    }
+    .countdown-unit {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,82 @@
+/* LoginPage.css */
+body {
+    background-color: #ffbe00; /* Solid background color */
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .login-container {
+    justify-content: center;
+    margin: 5px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+  }
+  
+  h1 {
+    color: #ff6b00;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 80%;
+    padding: 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    background: #f7f7f7;
+  }
+  
+  .login-btn {
+    background-color: #ff6b00;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 80%;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #ffdf00;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+    display: block;
+  }
+  
+  .character {
+    margin-top: 48px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    transition: bottom 0.3s ease;
+  }
+  
+  @media (max-width: 600px) {
+    .login-container {
+      padding: 20px;
+    }
+  }
+  

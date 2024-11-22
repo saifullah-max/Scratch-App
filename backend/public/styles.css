@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-control,
+.leaderboard {
+  margin-bottom: 30px;
+}
+
+h1, h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.button-group button {
+  margin-right: 10px;
+}
+
+#timer-display {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.entry {
+  margin: 10px 0;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.score {
+  margin-left: 10px;
+}
+
+input[type="text"], input[type="number"] {
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+}
+
+button {
+  margin-top: 10px;
+}

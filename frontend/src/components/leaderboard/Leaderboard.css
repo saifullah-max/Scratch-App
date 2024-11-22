@@ -1,0 +1,111 @@
+/* General Styles */
+.container {
+  font-family: 'Arial', sans-serif;
+  background-color: #f1f1f1;
+  padding: 20px;
+  width: 430px;
+  height: 100vh; /* Ensure container takes full height */
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden; /* Prevent overflow */
+}
+
+h1 {
+  font-size: 36px;
+  color: #2d2d2d;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Background & Board */
+.leaderboard-bg {
+  background-color: #6dbf5f;
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%; /* Ensure it takes full height inside container */
+  overflow: auto; /* Enable scrolling if needed */
+}
+
+/* Grid Layout for Multiple Columns */
+.leaderboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  justify-items: center;
+  width: 100%; /* Full width */
+  height: auto; /* Let the height adjust based on the content */
+  max-height: 100%; /* Prevent the leaderboard from overflowing */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+/* Leaderboard Entry Styles */
+.entry {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 100%; /* Ensure each entry takes up the available space */
+}
+
+.entry:hover {
+  transform: translateY(-5px);
+  background-color: #e9f9e1;
+}
+
+.entry .medal {
+  font-size: 24px;
+  margin-right: 15px;
+  flex-shrink: 0; /* Prevent medals from shrinking */
+}
+
+.entry .name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  flex-grow: 1;
+}
+
+.entry .score {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  flex-shrink: 0;
+}
+
+/* Gold, Silver, and Bronze */
+.gold {
+  background-color: #ffd700;
+}
+
+.silver {
+  background-color: #c0c0c0;
+}
+
+.bronze {
+  background-color: #cd7f32;
+}
+
+/* Animation on leaderboard updates */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.entry {
+  animation: slideIn 0.5s ease-out;
+}

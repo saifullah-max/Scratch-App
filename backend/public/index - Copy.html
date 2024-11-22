@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer and Leaderboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px; /* Adds space between the left and right panels */
+      flex-wrap: wrap; /* Allows the panels to wrap on smaller screens */
+      width: 100%;
+      height: 100%;
+      max-height: auto;
+    }
+    
+    /* Left Panel (Control Panel) */
+    .control-panel {
+      width: 40%; /* 40% of the container */
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Right Panel (Leaderboard) */
+    .leaderboard-panel {
+      width: 35%; /* 55% of the container */
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow-y: auto; /* Allow scrolling if there are many teams */
+      max-height: 100%;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input, button {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    /* Leaderboard entries */
+    .leaderboard .entry {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .team-id, .team-name, .team-score {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel: Control Panel -->
+    <div class="control-panel">
+      <h1>Timer and Leaderboard System</h1>
+      
+      <!-- Timer Section -->
+      <div class="section" id="timer-section">
+        <h2>Timer</h2>
+        <div class="form-group">
+          <label for="duration">Enter Duration (seconds):</label>
+          <input type="number" id="duration" placeholder="Enter duration in seconds">
+        </div>
+        <button id="start">Start Timer</button>
+        <button id="stop">Stop Timer</button>
+        <button id="reset">Reset Timer</button>
+        <p id="timer-display">Timer is not running.</p>
+      </div>
+      
+      <!-- Leaderboard Section -->
+      <div class="section" id="leaderboard-section">
+        <h2>Leaderboard</h2>
+        
+        <h3>Add New Team</h3>
+        <div class="form-group">
+          <label for="new-team-name">Team Name:</label>
+          <input type="text" id="new-team-name" placeholder="Enter team name">
+        </div>
+        <div class="form-group">
+          <label for="new-team-score">Score:</label>
+          <input type="number" id="new-team-score" placeholder="Enter team score">
+        </div>
+        <button id="add-team">Add Team</button>
+        
+        <h3>Edit Team Name</h3>
+        <div class="form-group">
+          <label for="edit-team-id">Team ID:</label>
+          <input type="number" id="edit-team-id" placeholder="Enter team ID">
+        </div>
+        <div class="form-group">
+          <label for="edit-team-name">New Team Name:</label>
+          <input type="text" id="edit-team-name" placeholder="Enter new team name">
+        </div>
+        <button id="edit-team-name-btn">Edit Name</button>
+        
+        <h3>Update Team Score</h3>
+        <div class="form-group">
+          <label for="update-team-id">Team ID:</label>
+          <input type="number" id="update-team-id" placeholder="Enter team ID">
+        </div>
+        <div class="form-group">
+          <label for="score-change">Score Change:</label>
+          <input type="number" id="score-change" placeholder="Enter score change (+/-)">
+        </div>
+        <button id="update-score">Update Score</button>
+        
+        <h3>Remove Team</h3>
+        <div class="form-group">
+          <label for="remove-team-id">Team ID:</label>
+          <input type="number" id="remove-team-id" placeholder="Enter team ID">
+        </div>
+        <button id="remove-team">Remove Team</button>
+      </div>
+    </div>
+
+    <!-- Right Panel: Leaderboard -->
+    <div class="leaderboard-panel">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard-list" class="leaderboard"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
